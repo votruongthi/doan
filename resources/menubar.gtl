@@ -1,0 +1,28 @@
+{{# Copyright 2017 Google Inc. }}
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<div class='menu'>
+  <span id='menu-left'>
+    <a href='/{{_unique_id}}/'>Trang chính</a>
+      [[if:_cookie.uid]]
+      | <a href='/{{_unique_id}}/snippets.gtl'>Nội dung&nbsp;của tôi</a>
+      | <a href='/{{_unique_id}}/newsnippet.gtl'>Nội dung&nbsp;mới</a>
+      | <a href='/{{_unique_id}}/upload.gtl'>Tải lên</a>
+      [[/if:_cookie.uid]]
+  </span>
+  <span id='menu-right'>
+      [[if:_cookie.uid]]
+      <span class='menu-user'>
+        {{_profile.name:text}} &lt;{{_cookie.uid}}&gt;
+      </span>
+      [[if:_cookie.is_admin]]
+      | <a href='/{{_unique_id}}/manage.gtl'>Quản lý server</a>
+      [[/if:_cookie.is_admin]]
+      | <a href='/{{_unique_id}}/editprofile.gtl'>Thông tin tài khoản</a>
+      | <a href='/{{_unique_id}}/logout'>Đăng xuất</a>
+      [[/if:_cookie.uid]]
+      [[if:!_cookie.uid]]
+      <a href='/{{_unique_id}}/login'>Đăng nhập</a>
+      | <a href='/{{_unique_id}}/newaccount.gtl'>Đăng ký</a>
+      [[/if:!_cookie.uid]]
+  </span>
+</div>

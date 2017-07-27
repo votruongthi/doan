@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<title>Trang chủ</title>
+[[include:base.css]][[/include:base.css]]
+<script src="/{{_unique_id}}/lib.js" text="text/javascript">
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+[[include:menubar.gtl]][[/include:menubar.gtl]]
+<div>
+<h2 class='has-refresh'>TRANG CHỦ</h2>
+<div class='refresh'><a class='button' onclick='_refreshHome("{{_unique_id}}")' href='#'>Làm mới</a></div>
+</div>
+<div class='content'>
+<table width='100%'>
+[[if:_profile.private_snippet]]
+  <tr>
+    <td></td>
+    <td>
+      Nội dung cá nhân
+    </td>
+    <td>
+      <a class='button' id='show' onclick='_showHide("show", "hide")' href='#'>Hiện &#9658;</a>
+      <span id='hide' style='display: none;'>
+      <a class='button' onclick='_showHide("show", "hide")' href='#'>Ẩn &#9668;</a> &nbsp;
+      <span id='private_snippet'>{{_profile.private_snippet:html}}</span></span>
+    </td>
+  </tr>
+  <tr><td colspan='3'><hr></td></tr>
+[[/if:_profile.private_snippet]]
+  <tr><td colspan='3'><b>Nội dung chia sẻ gần đây:</b></td></tr>
+[[for:_db]]
+[[if:is_author]][[if:snippets.0]]
+  <tr>
+    <td>
+     [[if:icon]]<img alt='' height='32' width='32' src='{{icon:text}}'>[[/if:icon]]
+    </td>
+    <td>
+      <b><span style='color:{{color:text}}'>[[if:name]]{{name:text}}[[/if:name]][[if:!name]]{{_key}}[[/if:!name]]</span></b>
+    </td>
+    <td width='100%'><span id='{{_key}}'>{{snippets.0:html}}</span>
+    <br>
+          <a href='/{{_unique_id}}/snippets.gtl?uid={{_key}}'>Hiện nội dung</a>&nbsp;
+      <a href='{{web_site:text}}'>Homepage</a>
+    <br>
+    <br>
+    </td>
+  </tr>
+[[/if:snippets.0]][[/if:is_author]]
+[[/for:_db]]
+</table>
+</div>
+</body>
+</html>

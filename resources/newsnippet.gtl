@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<title>Nội dung mới</title>
+[[include:base.css]][[/include:base.css]]
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+[[include:menubar.gtl]][[/include:menubar.gtl]]
+<h2>Nội dung mới</h2>
+
+<div class='content'>
+<h3>Thêm nội dung mới.</h3>
+
+[[if:_message]]
+<div class='message'>{{_message}}</div>
+[[/if:_message]]
+
+<div style='width:600'>
+<form method='get' action='/{{_unique_id}}/newsnippet2'>
+<textarea name='snippet' rows='5' style='width:100%'></textarea>
+<br>
+<table summary='' style='width:100%'>
+<tr>
+<td align='left' valign='top'>
+  
+</td>
+<td align='right' valign='top'>
+  <input type='submit' value='Xác nhận'>
+</td>
+</tr>
+</table>
+</form>
+</div>
+</body>
+
+</html>
+
